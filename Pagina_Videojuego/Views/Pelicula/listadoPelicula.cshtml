@@ -1,0 +1,84 @@
+﻿@model IEnumerable<Pagina_Videojuego.Models.Pelicula>
+
+@{
+    ViewBag.Title = "listadoPelicula";
+    Layout = "~/Views/Shared/_LayoutAdministrador.cshtml";
+}
+
+<h2>PRODUCTOS</h2>
+<br />
+
+<table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.idPelicula)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.direct)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.duracion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.fechaEstreno)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.precio)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.stock)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.genero)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.foto)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.idPelicula)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.direct)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.duracion)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.fechaEstreno)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.precio)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.stock)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.genero)
+                </td>
+                <td>
+                    <img src="@Url.Content(item.foto)" width="50" height="70"/>
+                </td>
+                <td>
+                    @Html.ActionLink(" ", "editarPelicula", new { id = item.idPelicula },
+                                                        new { @class = "glyphicon glyphicon-pencil" })
+                    @Html.ActionLink(" ", "detallePelicula", new { id = item.idPelicula },
+                                                        new { @class = "glyphicon glyphicon-plus-sign" })
+                    @Html.ActionLink(" ", "eliminarPelicula", new { id = item.idPelicula },
+                                                            new { @class = "glyphicon glyphicon-trash" })
+                </td>
+            </tr>
+        }
+
+</table>

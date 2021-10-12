@@ -1,0 +1,83 @@
+﻿@model IEnumerable<Pagina_Videojuego.Models.Usuario>
+
+@{
+    ViewBag.Title = "listadoUsuarioxNombre";
+    Layout = "~/Views/Shared/_LayoutAdministrador.cshtml";
+}
+
+<h2>BUSCAR USUARIO POR NOMBRE</h2>
+<br />
+
+<form action="/Usuario/listadoUsuarioxNombre" method="post">
+    <div class="form-group">
+        <label>Ingresa el nombre</label>
+        <input class="form-control" type="text" name="nombre" value="" />
+    </div>
+
+    <div class="form-group">
+        <input class="btn btn-primary" type="submit" value="BUSCAR" />
+    </div>
+</form>
+<br />
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.id_usua)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.nombres)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.nombreUsu)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.password)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.correo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fechaNaci)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.sexo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.pais)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.id_usua)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.nombres)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.nombreUsu)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.password)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.correo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.fechaNaci)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.sexo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.pais)
+            </td>
+            
+        </tr>
+    }
+
+</table>

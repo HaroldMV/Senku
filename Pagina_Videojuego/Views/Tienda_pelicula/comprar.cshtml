@@ -1,0 +1,73 @@
+﻿@model IEnumerable<Pagina_Videojuego.Models.ItemPelicula>
+
+@{
+    ViewBag.Title = "comprar";
+    Layout = "~/Views/Shared/_LayoutUsuario.cshtml";
+}
+
+<section class="panel-primary">
+    <section class="panel-heading">
+        <h2>LISTA DE PRODUCTOS</h2>
+    </section>
+    <section class="panel-body">
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.codigo)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.nombre)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.precio)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.cantidad)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.subtotal)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.foto)
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.codigo)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.nombre)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.precio)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.cantidad)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.subtotal)
+                    </td>
+                    <td>
+                        <img class="lisImape" src="@Url.Content(item.foto)" width="40px" height="60px" />
+                    </td>
+                    <td>
+                        @Html.ActionLink("DESCARTAR", "eliminarItem", new { id = item.codigo },
+                                        new { @class = "form-control" })
+                    </td>
+                </tr>
+            }
+
+        </table>
+        <br />
+        @Html.ActionLink("SEGUIR COMPRANDO", "carritoCompras", "", new { @class = "btn btn-primary" })
+    </section>
+</section>
+<section>
+    @Html.Label("TOTAL A PAGAR S/ ") @(((decimal)@ViewBag.total).ToString("0.00"))
+</section>
+
+

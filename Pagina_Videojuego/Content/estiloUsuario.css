@@ -1,0 +1,113 @@
+﻿body {
+    font-family: verdana;
+    background-size: cover;
+}
+
+
+.lisProdu{
+    width:48%;
+    height: 400px;
+    padding: 5px;
+    display: inline-block;
+    margin-bottom: 10px;
+    text-align: justify;
+}
+.lisProdu:hover{
+    background:#b1b1b1;
+}
+
+img.listIma:hover{
+    zoom:103%;
+}
+
+.imgArt:hover {
+    zoom: 105%;
+}
+
+
+.listIma {
+    float: left;
+    margin-right: 10px;
+    width: 240px;
+    height: 360px;
+}
+
+.lisImape {
+    width: 40px;
+    height: 60px;
+}
+
+#columna1{
+    margin:0px;
+    float: left;
+    width: 58%;
+    padding:5px;
+}
+
+#columna2 {
+    margin: 0px;
+    float: left;
+    width: 40%;
+    padding: 5px;
+}
+
+.bloque {
+    width: 24%;
+    height: 400px;
+    float: left;
+    margin: 15px;
+    text-align: center;
+}
+.bloque:hover{
+    background:#b1b1b1;
+}
+
+.imgArt {
+    width: 90%;
+    height: 300px;
+    float: left;
+    margin-left: 10px;
+    
+}
+
+.imgPro {
+    width: 1700%;
+    height: 370px;
+    margin-left: -180px;
+    padding: 1px;
+  
+}
+
+#registroIzq {
+    float: left;
+    width: 30%;
+}
+
+#registroDer {
+    float: right;
+    width: 70%;
+}
+
+#columna1 {
+    margin: 0px;
+    float: left;
+    width: 58%;
+    padding: 5px;
+}
+
+#columna2 {
+    margin: 0px;
+    float: left;
+    width: 40%;
+    padding: 5px;
+}
+
+#imgProPeq {
+    width: 70px;
+    height: 70px;
+    
+}
+
+.dato {
+    margin: 5px;
+}

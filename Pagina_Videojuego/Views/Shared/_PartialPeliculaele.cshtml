@@ -1,0 +1,84 @@
+﻿@model Pagina_Videojuego.Models.Pelicula
+
+<section class="panel panel-primary">
+    <section class="panel-heading">
+        <h4>DATOS DEL PRODUCTO SELECCIONADO</h4>
+    </section>
+    <section class="panel-body">
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.idPelicula)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.idPelicula)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.nombre)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.nombre)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.direct)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.direct)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.duracion)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.duracion)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.fechaEstreno)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.fechaEstreno)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.precio)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.precio)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.stock)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.stock)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.genero)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.genero)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.foto)
+            </dt>
+
+            <dd>
+                <img class="listIma" src="@Url.Content(Model.foto)" />
+            </dd>
+
+        </dl>
+    </section>
+</section>
+

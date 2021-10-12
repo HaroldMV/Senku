@@ -1,0 +1,82 @@
+﻿@model Pagina_Videojuego.Models.Usuario
+
+@{
+    ViewBag.Title = "detalleUsuario";
+    Layout = "~/Views/Shared/_LayoutAdministrador.cshtml";
+}
+
+<section class="marcoDeta">
+    <h2>DETALLE DE USUARIO</h2>
+    <br />
+
+    <div>
+
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.id_usua)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.id_usua)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.nombres)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.nombres)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.nombreUsu)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.nombreUsu)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.password)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.password)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.correo)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.correo)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.fechaNaci)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.fechaNaci)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.sexo)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.sexo)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.pais)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.pais)
+            </dd>
+
+        </dl>
+    </div>
+</section>

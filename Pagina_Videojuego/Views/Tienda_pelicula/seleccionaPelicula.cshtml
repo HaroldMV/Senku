@@ -1,0 +1,28 @@
+﻿@model Pagina_Videojuego.Models.Pelicula
+
+@{
+    ViewBag.Title = "seleccionaPelicula";
+    Layout = "~/Views/Shared/_LayoutUsuario.cshtml";
+}
+
+<section id="columna1">
+    @Html.Partial("_PartialPeliculaele")
+</section>
+
+<section id="columna2">
+    <section class="panel panel-primary">
+        <section class="panel-heading">
+            <h4>PROCESO DE COMPRA</h4>
+        </section>
+        <section class="panel-body">
+            @using (Html.BeginForm("agregarPelicula", "Tienda_pelicula"))
+            { 
+                @Html.Hidden("id",Model.idPelicula)
+                @Html.TextBox("cant", "", new { @class = "form-control" })
+                <br />
+            <input class="btn btn-primary" type="submit" value="ACEPTAR" />
+            @Html.ActionLink("CANCELAR", "carritoCompras", "", new { @class="btn btn-danger"})
+            }
+        </section>
+    </section>
+</section>

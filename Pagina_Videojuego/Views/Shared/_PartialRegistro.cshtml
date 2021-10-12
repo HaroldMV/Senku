@@ -1,0 +1,51 @@
+﻿@model Pagina_Videojuego.Models.Videojuego
+<section class="panel panel-primary">
+    <section class="panel-heading">
+        <h4>DATOS DEL SELECCIONADO</h4>
+    </section>
+    <section class="panel-body">
+        <dl class="dl-horizontal">
+            <div id="registroIzq">
+                <dd>
+                    <img class="imgPro" src="@Url.Content(Model.portada)" />
+                </dd>
+            </div>
+
+            <br />
+            <div id="registroDer">
+                <dt>
+                    @Html.DisplayNameFor(model => model.idVid)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.idVid)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.nomVide)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.nomVide)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.precio)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.precio)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.stock)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.stock)
+                </dd>
+            </div>
+        </dl>
+    </section>
+</section>
+

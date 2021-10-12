@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Mi aplicación ASP.NET</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link href="~/Content/estiloAdmin.css" rel="stylesheet" />
+</head>
+<body>
+        <div id="container">
+            <br />
+            <div id="contenido">
+                <div id="banner">
+                    
+                    <nav id="menuAdmin">
+                        <ul class="nav">
+                            @if (User.Identity.IsAuthenticated)
+                            {
+                        <li>@Html.ActionLink("Inicio", "Index", "Profile")</li>
+
+
+
+                                        <li>@Html.ActionLink("Vender", "registroPelicula", "Pelicula")</li>
+
+                                                        <li>@Html.ActionLink("Mis Productos", "listadoPeliculaPag", "Pelicula")</li>
+
+
+
+                                                                        <li>@Html.ActionLink("Salir", "Logout", "Home")</li>
+}
+                        </ul>
+                    </nav>
+                </div>
+
+                <br />
+                @RenderBody()
+
+
+                <footer>
+                    <img class="foot" src="~/Images/principal/jottlyfooterstyles.png" alt="Footer" />
+                </footer>
+
+
+            </div>
+
+
+
+            @Scripts.Render("~/bundles/jquery")
+            @Scripts.Render("~/bundles/bootstrap")
+            @RenderSection("scripts", required: false)
+        </div>
+
+    </body>
+
+</html>

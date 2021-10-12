@@ -1,0 +1,130 @@
+﻿* {
+    margin: 0px auto;
+    padding: 0;
+}
+
+body {
+   
+    background:#ffffff;
+    font-family: verdana;
+    background-size: cover;
+}
+
+#menuAdmin {
+    background: #05235a;
+    width: 75%;
+    height: 100%;
+    float: right;
+    text-align:center;
+}
+
+
+ul {
+    list-style: none;
+}
+
+
+.nav li {
+    color: #05235a;
+    width: 170px;
+    text-decoration: none;
+    display: block;
+    padding: 9px;
+}
+
+.nav > li {
+    float: left;
+
+}
+
+.nav li a {
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+    .nav li a:hover {
+        background: #17518f;
+        
+    }
+
+
+
+
+.nav li ul {
+    display: none;
+    position: absolute;
+    text-align: left;
+}
+
+.nav li:hover > ul {
+    display: block;
+    background-color: #05235a;
+   
+}
+
+.mostrar {
+    width: 100%;
+    height: auto;
+    padding: 10px;
+}
+
+.marcoDeta{
+    width: 45%;
+    text-align: center;
+    display: inline-block;
+}
+
+.imgFoto {
+    width: 80px;
+    height: 80px;
+}
+
+.Foto {
+    width: 200px;
+    height: 300px;
+}
+
+.pag{
+    text-align: center;
+}
+
+
+/*CRUD Videojuegos*/
+
+#bloqueLista {
+    
+}
+
+#portadaLista {
+    float: left;
+    width: 35%;
+}
+
+#datosLista {
+    width: 65%;
+    font-size: 16px;
+}
+
+#CRUDLista {
+    width: 24%;
+    text-align: center;
+    font-size: 15px;
+}
+
+.portadaLista {
+    width: 60%;
+    
+   
+    height: 340px;
+}
+
+.botonLista {
+    text-align: center;
+    width: 10%;
+    font-size: 14px;
+   
+}
+
+#paginadoListado {
+    text-align: center;
+}

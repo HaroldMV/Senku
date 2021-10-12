@@ -1,0 +1,143 @@
+﻿@model Pagina_Videojuego.Models.Usuario
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutAdministrador.cshtml";
+}
+
+<h2 style="text-align:center">Bienvenido(a) @ViewBag.nombre</h2>
+<br />
+<section id="cuerpo">
+
+    <div id="juegos-izquierda">
+
+        <h2 class="titulo-juegos">Ultimos juegos agregados</h2>
+
+        <img class="cara-img" src="~/Images/Productos/pro01.jpg" alt="Caratula" />
+        <img class="cara-img" src="~/Images/Productos/pro02.jpg" alt="Caratula" />
+        <img class="cara-img" src="~/Images/Productos/pro03.jpg" alt="Caratula" />
+        <img class="cara-img" src="~/Images/Productos/pro04.jpg" alt="Caratula" />
+
+
+
+    </div>
+
+    <div id="formulario-derecha">
+
+        <h2 class="titulo-juegos">Perfil</h2>
+        <br />
+        <img style="float: left; width: 25%" src="~/Images/principal/OIP.jpg" alt="Alternate Text" />
+
+        <div style="float:right; width:74%;">
+
+
+
+            <dl style="font-size: 12px;">
+                <dt>
+                    @Html.DisplayNameFor(model => model.id_usua)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.id_usua)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.nombres)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.nombres)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.nombreUsu)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.nombreUsu)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.correo)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.correo)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.fechaNaci)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.fechaNaci)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.pais)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.pais)
+                </dd>
+
+            </dl>
+
+
+
+
+        </div>
+        <div class="">
+            <button>Ver Perfil</button>
+        </div>
+
+        <br /><br /><br />
+
+
+        <h2 class="titulo-juegos">-25% OFF</h2>
+
+        <a>
+            <img src="~/Images/games/control_ps4.jpg" style="width:100%; border:thick; border-radius:10px;" />
+            <h4 style="text-align: center"></h4>
+        </a>
+    </div>
+
+
+
+</section>
+<br /><br /><br /><br /><br /><br /><br />
+<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+
+<!--****** Carrusel******* -->
+
+
+<section id="cuerpo">
+
+    <div id="juegos-izquierda">
+
+        <h2 class="titulo-juegos">Nuevos productos</h2>
+
+        <img class="cara-img" src="~/Images/Productos/pro04.jpg" alt="Caratula" />
+        <img class="cara-img" src="~/Images/Productos/pro05.jpg" alt="Caratula" />
+        <img class="cara-img" src="~/Images/Productos/pro06.jpg" alt="Caratula" />
+
+
+
+
+
+
+
+    </div>
+
+    <div id="formulario-derecha">
+
+        <h2 class="titulo-juegos">Ofertas del Dia</h2>
+
+       
+        </div>
+    </div>
+</section>
+
+
+

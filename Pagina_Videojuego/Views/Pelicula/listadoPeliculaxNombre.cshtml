@@ -1,0 +1,94 @@
+﻿@model IEnumerable<Pagina_Videojuego.Models.Pelicula>
+
+
+
+
+@{
+    ViewBag.Title = "listadoPeliculaxNombre";
+    Layout = "~/Views/Shared/_LayoutUsuario.cshtml";
+
+}
+
+<h2>BUSCAR PRODUCTOS</h2>
+<br />
+
+<form action="/Pelicula/listadoPeliculaxNombre" method="post">
+    <div class="form-group">
+        <label>Ingrese Producto</label>
+        <input class="form-control" type="text" name="nombre" value="" />
+    </div>
+    
+    <div class="form-group">
+        <input class="btn btn-primary" type="submit" value="BUSCAR" />
+    </div>
+</form>
+<br />
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.idPelicula)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.direct)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.duracion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fechaEstreno)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.precio)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.stock)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.genero)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.foto)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.idPelicula)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.direct)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.duracion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.fechaEstreno)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.precio)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.stock)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.genero)
+        </td>
+        <td>
+            <img src="@Url.Content(item.foto)" width="50" height="70" />
+        </td>
+        <td>
+            
+        </td>
+    </tr>
+}
+
+</table>
