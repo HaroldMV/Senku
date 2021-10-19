@@ -1,60 +1,60 @@
-﻿@model IEnumerable<Pagina_Videojuego.Models.Pelicula>
+﻿@model IEnumerable<Pagina_Videojuego.Models.Producto>
 
 @{
-    ViewBag.Title = "listadoPeliculaPag";
-    Layout = "~/Views/Shared/_LayoutAdministrador.cshtml";
+	ViewBag.Title = "listadoPeliculaPag";
+	Layout = "~/Views/Shared/_LayoutAdministrador.cshtml";
 }
 
 
 <h2>TODOS MIS PRODUCTOS</h2>
 <br />
 <p>
-    <button class="btn btn-default">@Html.ActionLink("Registrar Pelicula", "registroPelicula")</button>
+	<button class="btn btn-default">@Html.ActionLink("Registrar Pelicula", "registroPelicula")</button>
 </p>
 
 @foreach (var item in Model)
-{ 
-    <div id="bloqueLista">
-        <br />
-        <div id="portadaLista">
-            <img class="portadaLista" src="@Url.Content(item.foto)" alt="Alternate Text" />
-        </div>
-        <br />
-        <div id="datosLista">
+{
+	<div id="bloqueLista">
+		<br />
+		<div id="portadaLista">
+			<img class="portadaLista" src="@Url.Content(item.foto)" alt="Alternate Text" />
+		</div>
+		<br />
+		<div id="datosLista">
 
-            <p>     Codigo :@Html.DisplayFor(modelItem => item.idPelicula)</p>
+			<p>     Codigo :@Html.DisplayFor(modelItem => item.idPelicula)</p>
 
-            <p>    Nombre: @Html.DisplayFor(modelItem => item.nombre)</p>
+			<p>    Nombre: @Html.DisplayFor(modelItem => item.nombre)</p>
 
-            <p>    Plataformas: @Html.DisplayFor(modelItem => item.direct)</p>
+			<p>    Plataformas: @Html.DisplayFor(modelItem => item.direct)</p>
 
-            <p>    Desarrolladora: @Html.DisplayFor(modelItem => item.duracion)</p>
+			<p>    Desarrolladora: @Html.DisplayFor(modelItem => item.duracion)</p>
 
-            <p>    Fecha de Lanzamiento: @Html.DisplayFor(modelItem => item.fechaEstreno)</p>
+			<p>    Fecha de Lanzamiento: @Html.DisplayFor(modelItem => item.fechaEstreno)</p>
 
-            <p>    Precio: @Html.DisplayFor(modelItem => item.precio)</p>
+			<p>    Precio: @Html.DisplayFor(modelItem => item.precio)</p>
 
-            <p>    Stock: @Html.DisplayFor(modelItem => item.stock)</p>
+			<p>    Stock: @Html.DisplayFor(modelItem => item.stock)</p>
 
-            <p>    Genero: @Html.DisplayFor(modelItem => item.genero)</p>
-            <br />
-        </div>
-        <div id="CRUSLista">
-            <button class="botonLista">@Html.ActionLink(" Editar ", "editarPelicula", new { id = item.idPelicula })</button>
-            <button class="botonLista">@Html.ActionLink(" Detalles ", "detallePelicula", new { id = item.idPelicula })</button>
-            <button class="botonLista">@Html.ActionLink(" Eliminar ", "eliminarPelicula", new { id = item.idPelicula })</button>
+			<p>    Genero: @Html.DisplayFor(modelItem => item.genero)</p>
+			<br />
+		</div>
+		<div id="CRUSLista">
+			<button class="botonLista">@Html.ActionLink(" Editar ", "editarPelicula", new { id = item.idPelicula })</button>
+			<button class="botonLista">@Html.ActionLink(" Detalles ", "detallePelicula", new { id = item.idPelicula })</button>
+			<button class="botonLista">@Html.ActionLink(" Eliminar ", "eliminarPelicula", new { id = item.idPelicula })</button>
 
 
-        </div>
-        <br /><br />
-    </div>
+		</div>
+		<br /><br />
+	</div>
 }
 
 <div class="pag">
-    <h6>
-        @for (int i = 0; i < ViewBag.pag; i++)
-        {
-            @Html.ActionLink((i + 1).ToString(), "listadoPeliculaPag", new { p = i }, new { @class = "btn btn-default" })
-        }
-    </h6>
+	<h6>
+		@for (int i = 0; i < ViewBag.pag; i++)
+		{
+			@Html.ActionLink((i + 1).ToString(), "listadoPeliculaPag", new { p = i }, new { @class = "btn btn-default" })
+		}
+	</h6>
 </div>

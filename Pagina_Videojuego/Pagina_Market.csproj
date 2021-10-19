@@ -132,6 +132,7 @@
     <Compile Include="Models\ItemPelicula.cs" />
     <Compile Include="Models\Pais.cs" />
     <Compile Include="Models\Pelicula.cs" />
+    <Compile Include="Models\Producto.cs" />
     <Compile Include="Models\UsuarioOriginal.cs" />
     <Compile Include="Models\PeliculaOriginal.cs" />
     <Compile Include="Models\Usuario.cs" />

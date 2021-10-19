@@ -22,9 +22,9 @@ namespace Pagina_Videojuego.Controllers
 		SqlConnection cn = new SqlConnection(ConfigurationManager
 												.ConnectionStrings["cnx"].ConnectionString);
 
-		List<Pelicula> ListPelicula()
+		List<Producto> ListPelicula()
 		{
-			List<Pelicula> aPelicula = new List<Pelicula>();
+			List<Producto> aPelicula = new List<Producto>();
 			SqlCommand cmd = new SqlCommand("SP_LISTAPRODUCTO", cn)
 			{
 				CommandType = CommandType.StoredProcedure
@@ -33,17 +33,18 @@ namespace Pagina_Videojuego.Controllers
 			SqlDataReader dr = cmd.ExecuteReader();
 			while (dr.Read())
 			{
-				aPelicula.Add(new Pelicula()
+				aPelicula.Add(new Producto()
 				{
-					idPelicula = dr[0].ToString(),
-					nombre = dr[1].ToString(),
-					direct = dr[2].ToString(),
-					duracion = dr[3].ToString(),
-					fechaEstreno = dr[4].ToString(),
-					precio = double.Parse(dr[5].ToString()),
-					stock = int.Parse(dr[6].ToString()),
-					genero = dr[7].ToString(),
-					foto = dr[8].ToString()
+					Id = dr.GetString(0),
+					Nombre = dr.GetString(1),
+					Description = dr.GetString(2),
+					TiempoEnvio = dr.GetString(3),
+					FechaPub = dr.GetString(4),
+					Precio = dr.GetDecimal(5),
+					Stock = dr.GetInt32(6),
+					Imagen = dr.GetString(7),
+					Categoria = dr.GetString(8),
+					Usuario = dr.GetString(9)
 				});
 			}
 			dr.Close();
@@ -78,32 +79,35 @@ namespace Pagina_Videojuego.Controllers
 			return aPelicula;
 		}
 
-		List<Pelicula> ListPeliculaxNombre(string nombre)
+		List<Producto> ListProductoByNombre(string nombre)
 		{
-			List<Pelicula> aPelicula = new List<Pelicula>();
-			SqlCommand cmd = new SqlCommand("SP_LISTAPELICULAXNOMBRE", cn);
-			cmd.Parameters.AddWithValue("@NOM", nombre);
-			cmd.CommandType = CommandType.StoredProcedure;
+			List<Producto> productos = new List<Producto>();
+			SqlCommand cmd = new SqlCommand("SP_LISTA_PRODUCTO_POR_NOMBRE", cn)
+			{
+				CommandType = CommandType.StoredProcedure
+			};
+			cmd.Parameters.AddWithValue("@nombre", nombre);
 			cn.Open();
 			SqlDataReader dr = cmd.ExecuteReader();
 			while (dr.Read())
 			{
-				aPelicula.Add(new Pelicula()
+				productos.Add(new Producto()
 				{
-					idPelicula = dr[0].ToString(),
-					nombre = dr[1].ToString(),
-					direct = dr[2].ToString(),
-					duracion = dr[3].ToString(),
-					fechaEstreno = dr[4].ToString(),
-					precio = double.Parse(dr[5].ToString()),
-					stock = int.Parse(dr[6].ToString()),
-					genero = dr[7].ToString(),
-					foto = dr[8].ToString()
+					Id = dr.GetString(0),
+					Nombre = dr.GetString(1),
+					Description = dr.GetString(2),
+					TiempoEnvio = dr.GetString(3),
+					FechaPub = dr.GetString(4),
+					Precio = dr.GetDecimal(5),
+					Stock = dr.GetInt32(6),
+					Imagen = dr.GetString(7),
+					Categoria = dr.GetString(8),
+					Usuario = dr.GetString(9)
 				});
 			}
 			dr.Close();
 			cn.Close();
-			return aPelicula;
+			return productos;
 		}
 
 		List<GeneroPelicula> listGenero()
@@ -130,7 +134,7 @@ namespace Pagina_Videojuego.Controllers
 		string codigoCorrelativo()
 		{
 			string codigo = null;
-			SqlCommand cmd = new SqlCommand("SP_ULTIMOCODIGOPELICULA", cn);
+			SqlCommand cmd = new SqlCommand("SP_ULTIMOCODIGOPRODUCTO", cn);
 			cn.Open();
 			SqlDataReader dr = cmd.ExecuteReader();
 			while (dr.Read())
@@ -189,7 +193,7 @@ namespace Pagina_Videojuego.Controllers
 
 		public ActionResult listadoPeliculaPag(int p = 0)
 		{
-			List<Pelicula> aPelicula = ListPelicula();
+			List<Producto> aPelicula = ListPelicula();
 			int filas = 10;
 			int n = aPelicula.Count;
 			int pag = n % filas > 0 ? n / filas + 1 : n / filas;
@@ -202,7 +206,7 @@ namespace Pagina_Videojuego.Controllers
 
 		public ActionResult detallePelicula(string id)
 		{
-			Pelicula objP = ListPelicula().Where(p => p.idPelicula == id).FirstOrDefault();
+			Producto objP = ListPelicula().Where(p => p.Id == id).FirstOrDefault();
 			return View(objP);
 		}
 
@@ -231,8 +235,8 @@ namespace Pagina_Videojuego.Controllers
 
 		public ActionResult registroPelicula()
 		{
-			//ViewBag.codigo = codigoCorrelativo();
-			ViewBag.genero = new SelectList(listGenero(), "idGenero", "nombre");
+			ViewBag.codigo = codigoCorrelativo();
+			ViewBag.categorias = new SelectList(listGenero(), "idGenero", "nombre");
 			return View(new PeliculaOriginal());
 		}
 
@@ -266,7 +270,7 @@ namespace Pagina_Videojuego.Controllers
 			f.SaveAs(Path.Combine(Server.MapPath("~/Images/Productos/"),
 					Path.GetFileName(f.FileName)));
 
-			ViewBag.genero = new SelectList(listGenero(), "ID_CATEG", "NOM_CATEG");
+			//ViewBag.genero = new SelectList(listGenero(), "ID_CATEG", "NOM_CATEG");
 			return RedirectToAction("listadoPelicula");
 
 		}
@@ -312,10 +316,10 @@ namespace Pagina_Videojuego.Controllers
 
 		public ActionResult eliminarPelicula(string id)
 		{
-			Pelicula objP = ListPelicula().Where(x => x.idPelicula == id).FirstOrDefault();
+			Producto objP = ListPelicula().Where(x => x.Id == id).FirstOrDefault();
 			List<SqlParameter> parameters = new List<SqlParameter>()
 						{
-								new SqlParameter(){ParameterName="@ID",SqlDbType=SqlDbType.Char, Value=objP.idPelicula},
+								new SqlParameter(){ParameterName="@ID",SqlDbType=SqlDbType.Char, Value=objP.Id},
 						};
 			CRUD("SP_ELIMINARPELICULA", parameters);
 			return RedirectToAction("listadoPelicula");
@@ -323,13 +327,13 @@ namespace Pagina_Videojuego.Controllers
 
 		public ActionResult listadoPeliculaxNombre()
 		{
-			return View(ListPeliculaxNombre(""));
+			return View(ListProductoByNombre(""));
 		}
 
 		[HttpPost]
 		public ActionResult listadoPeliculaxNombre(string nombre)
 		{
-			return View(ListPeliculaxNombre(nombre));
+			return View(ListProductoByNombre(nombre));
 		}
 
 	}
