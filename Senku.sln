@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31729.503
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Senku", "Senku.csproj", "{63CE1F54-4C6C-462F-945E-82E5CC6C0AD3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{63CE1F54-4C6C-462F-945E-82E5CC6C0AD3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{63CE1F54-4C6C-462F-945E-82E5CC6C0AD3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{63CE1F54-4C6C-462F-945E-82E5CC6C0AD3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{63CE1F54-4C6C-462F-945E-82E5CC6C0AD3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {470EFD2A-EFC6-463B-8EE8-4EAC4229954A}
+	EndGlobalSection
+EndGlobal
